@@ -20,6 +20,21 @@ app.post("/", (req, res) => {
 })
 
 
+app.post("/search",(req,res)=>{
+    let input = req.body
+    bloodBankModel.find(input).then(
+        (data)=>{
+            res.json(data)
+
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+})
+
+
 app.post("/view",(req,res)=>{
     bloodBankModel.find().then(
         (data)=>{
